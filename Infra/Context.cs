@@ -16,6 +16,13 @@ namespace Infra
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<MyEntity>().HasData(
+                new MyEntity
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "foo",
+                    Value = "bar"
+                });
         }
 
         public DbSet<MyEntity> MyEntities { get; set; }
